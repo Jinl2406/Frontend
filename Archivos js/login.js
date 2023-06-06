@@ -4,8 +4,19 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('click', async function(e) {
         e.preventDefault(); // Evitar que el formulario se envíe normalmente
 
+      
+
         const email = document.getElementById('txtEmail').value;
         const contraseña = document.getElementById('contraseña').value;
+             
+if(email.trim() === ""){
+  alertaDefault('error','Debe ingresar un email');
+  return;
+}
+if(contraseña.trim() === ""){
+  alertaDefault('error','Debe ingresar una contraseña');
+  return;
+}
 
         const data = {
             email: email,
