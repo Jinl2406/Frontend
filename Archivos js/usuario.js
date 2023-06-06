@@ -4,9 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const contraseña = urlParams.get('contraseña');
     const id = urlParams.get('id');
   
-    // Mostrar los datos en los elementos HTML
-    document.getElementById('email').textContent = email;
-    document.getElementById('contraseña').textContent = contraseña;
-    document.getElementById('id').textContent = id;
+    if (!email || !contraseña || !id) {
+    
+      window.location.href = "../Archivos html/login.html";
+
+    } else {
+      // Mostrar los datos en los elementos HTML
+      document.getElementById('email').textContent = email;
+      document.getElementById('contraseña').textContent = contraseña;
+      document.getElementById('id').textContent = id;
+    }
   });
-  
