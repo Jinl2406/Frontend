@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabla</title>
-    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -17,56 +16,45 @@
   <link rel="stylesheet" href="../adminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../adminLTE/dist/css/adminlte.min.css">
-  <link rel="stylesheet" href="../Archivos css/jquery-ui.css">
+  <link href="../jquery/jquery-ui.css" rel="stylesheet">
 </head>
 <body>
-
+  
 <div class="card">
-    <div class="card-header">
-      <h3 class="card-title">DataTable</h3>
-    </div>
+  <div class="card-header">
+    <h3 class="card-title">DataTable with default features</h3>
+  </div>
 
-
-    <div class="ui-widget">
-  <label for="tags">Buscar: </label>
-  <input id="tags">
+<!-- Autocomplete -->
+<h2 class="demoHeaders">Autocomplete</h2>
+<div>
+	<input id="autocomplete" title="type &quot;a&quot;">
 </div>
 
 
-
-    <!-- /.card-header -->
-    <!-- <div class="card-body"> 
-      <table id="example1" class="table table-bordered table-striped">
-        <thead>
-        <tr>
-          <th>Id</th>
-          <th>Email</th>
-          <th>Contraseña</th>
-        </tr>
-        </thead>
-        <tbody>
-          
-        <tr>
-            <td><?php echo $row['id']; ?></td>
-            <td><?php echo $row['email']; ?></td>
-            <td><?php echo $row['contraseña']; ?></td>
-        </tr>
-        <?php endforeach; ?>
-        </tbody>
-        <tfoot>
-        <tr>
-            <th>Id</th>
-            <th>Email</th>
-            <th>Contraseña</th>
-        </tr>
-        </tfoot>
-      </table>
-    </div>
-     /.card-body 
+  <!-- /.card-header -->
+  <div class="card-body">
+    <table id="example1" class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Email</th>
+        <th>Contraseña</th>
+      </tr>
+      </thead>
+      <tbody></tbody>
+      <tfoot>
+      <tr>
+        <th>Id</th>
+        <th>Email</th>
+        <th>Contraseña</th>
+      </tr>
+      </tfoot>
+    </table>
   </div>
--->
-
-  <!-- jQuery -->
+  <!-- /.card-body -->
+</div>
+<!-- jQuery -->
 <script src="../adminLTE/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -86,11 +74,13 @@
 <!-- AdminLTE App -->
 <script src="../adminLTE/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../adminLTE/dist/js/demo.js"></script>
-<!-- Page specific script -->
-<script src="../Archivos js/jquery-ui.js"></script>
+<script src="../Archivos js/autocomplete.js"></script>
 <script src="../Archivos js/tabla.js"></script>
+<script src="../jquery/jquery-ui.js"></script>
+<!-- Page specific script -->
 
 </body>
 </html>
+
+
 

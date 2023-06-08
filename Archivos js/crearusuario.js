@@ -20,7 +20,7 @@ if(contraseña.trim() === ""){
 
 
 
-  fetch("../Archivos php/ingreso.php", {
+  fetch("../../backend/ingreso.php", {
       method: "POST",
       body: formData
   })
@@ -31,7 +31,7 @@ if(contraseña.trim() === ""){
 
           alertaDefault('success','Usuario Creado');
           setTimeout(function() {
-              window.location.href = "../Archivos php/tabla.php";
+              window.location.href = "../Archivos html/tabla.html";
           }, 3001);
       }
   })

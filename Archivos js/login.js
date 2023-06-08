@@ -24,7 +24,7 @@ if(contraseña.trim() === ""){
           };
 
           try {
-            const res = await fetch('../Archivos php/validar.php', {
+            const res = await fetch('../../backend/validar.php', {
                 method: 'POST',
                 body: JSON.stringify(data)
             });
