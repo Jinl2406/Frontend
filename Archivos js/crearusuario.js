@@ -1,30 +1,42 @@
-
 document.getElementById("btnUsuario").addEventListener("click", function(event) {
   event.preventDefault();
 
-  let form = document.getElementById("myForm");
-  let formData = new FormData(form);
+  let emailInput = document.getElementById("txtEmail");
+  let email = emailInput.value;
 
-  let email = formData.get("txtEmail");
-  let contraseña = formData.get("contraseña");
+  let contraseñaInput = document.getElementById("contraseña");
+  let contraseña = contraseñaInput.value;
 
+  let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-if(email.trim() === ""){
-  alertaDefault('error','Debe ingresar un email');
-  return;
-}
-if(contraseña.trim() === ""){
-  alertaDefault('error','Debe ingresar una contraseña');
-  return;
-}
+  if (!emailRegex.test(email)) {
+    alertaDefault('error', 'Email inválido');
+    return;
+  }
 
+  if (email.trim() === "") {
+    alertaDefault('error', 'Debe ingresar un email');
+    return;
+  }
 
+  if (contraseña.trim() === "") {
+    alertaDefault('error', 'Debe ingresar una contraseña');
+    return;
+  }
+
+  // Validar la contraseña
+  let contraseñaRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+  if (!contraseñaRegex.test(contraseña)) {
+    alertaDefault('error', 'La contraseña debe tener al menos 6 caracteres y contener al menos una letra minúscula y una letra mayúscula.');
+    return;
+  }
+
+  // Resto del código...
 
   fetch("../../backend/ingreso.php", {
       method: "POST",
-      body: formData
+      body: new FormData(document.getElementById("myForm"))
   })
-
   .then(function(response) {
       if (response.ok) {
           // El envío se ha completado correctamente
@@ -38,14 +50,9 @@ if(contraseña.trim() === ""){
   .catch(function(error) {
       console.log(error);
   });
-
-
-
-
 });
 
-
-function alertaDefault(type,text){
+function alertaDefault(type, text) {
   Swal.fire({
     text: text,
     target: '#custom-target',
@@ -57,11 +64,5 @@ function alertaDefault(type,text){
     icon: type,
     showConfirmButton: false,
     timer: 3000
-
-
-  })
+  });
 }
-
-
-
-    

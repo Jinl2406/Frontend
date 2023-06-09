@@ -22,16 +22,24 @@
   
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">DataTable with default features</h3>
+    <h3 class="card-title">Tabla Usuarios</h3>
   </div>
-
+<div class="container-fluid">
 <!-- Autocomplete -->
-<h2 class="demoHeaders">Autocomplete</h2>
+<h2 class="demoHeaders" >Autocomplete</h2>
 <div>
 	<input id="autocomplete" title="type &quot;a&quot;">
 </div>
+</div>
 
-
+<hr>
+<form id="myForm">
+<div class="container-fluid">
+<div class="col-2">
+<button type="button" id="btnUsuario" class="btn btn-block btn-secondary">Crear Usuario</button>
+</div>
+</div>
+</form>
   <!-- /.card-header -->
   <div class="card-body">
     <table id="example1" class="table table-bordered table-striped">
@@ -71,12 +79,15 @@
 <script src="../adminLTE/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="../adminLTE/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="../adminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <!-- AdminLTE App -->
 <script src="../adminLTE/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../Archivos js/autocomplete.js"></script>
 <script src="../Archivos js/tabla.js"></script>
 <script src="../jquery/jquery-ui.js"></script>
+<script src="../Archivos js/crearusuario2.js"></script>
 <!-- Page specific script -->
 
 </body>
