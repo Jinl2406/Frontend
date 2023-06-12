@@ -8,9 +8,8 @@ document.getElementById("btnUsuario").addEventListener("click", function(event) 
         '<input id="emailInput" name="emailInput" class="swal2-input" placeholder="Email" type="text" autocapitalize="off">' +
         '<input id="passwordInput" name="passwordInput" class="swal2-input" placeholder="Contraseña" type="password" autocapitalize="off">'+
         '</form>',
-      showCancelButton: true,
-      confirmButtonText: 'Look up',
-      showLoaderOnConfirm: true,
+      confirmButtonText: 'Crear usuario',
+      showLoaderOnConfirm: false,
       preConfirm: () => {
         return new Promise((resolve, reject) => {
           const email = document.getElementById('emailInput').value;
@@ -59,9 +58,12 @@ document.getElementById("btnUsuario").addEventListener("click", function(event) 
           });
         });
       },
-      allowOutsideClick: () => !Swal.isLoading()
+    allowOutsideClick: true,
+    showCancelButton: true,
+    cancelButtonText: 'Cancelar'
     })
-    .then(() => {
+    .then((result) => {
+      if (result.isConfirmed){
       // Continuar con el proceso de envío de los datos a la base de datos
       const formData = new FormData(document.getElementById("myForm"));
       fetch("../../backend/crearusuario.php", {
@@ -82,6 +84,7 @@ document.getElementById("btnUsuario").addEventListener("click", function(event) 
       .catch(function(error) {
         console.log(error);
       });
+    }
     })
     .catch(error => {
       Swal.fire('Error', error.message, 'error');
