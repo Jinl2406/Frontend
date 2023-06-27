@@ -11,44 +11,17 @@
   <link rel="stylesheet" href="../adminLTE/plugins/fontawesome-free/css/all.min.css">
   <!-- icheck bootstrap -->
   <link rel="stylesheet" href="../adminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Theme style -->
+  <!-- Theme style --> 
   <link rel="stylesheet" href="../adminLTE/dist/css/adminlte.min.css">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body class="hold-transition login-page">
+
   <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v17.0&appId=1279878359301785&autoLogAppEvents=1" nonce="oehP2aPQ"></script>
-  
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1279878359301785',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v17.0'
-    });
-      
-    FB.AppEvents.logPageView();   
-      
-  };
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-   function onLogin() {
-      FB.login((response) => {
-        if(response.authResponse){
-          FB.api('/me?fields=email,name,picture',(response) => {
-            console.log(response)
-          })
-        }
-      })    
-   };
-
-</script>
   
 <div class="login-box">
   <!-- /.login-logo -->
@@ -96,12 +69,16 @@
       <div class="social-auth-links text-center mt-2 mb-3">
         
         <a onclick="onLogin() ;" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+          <i class="fab fa-facebook mr-2"></i> Loguearse con Facebook
         </a>
 
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-        </a>
+        <div id="g_id_onload"
+             data-client_id="309132159014-gpq1h8qeg5tjohtod722hmeg4okq43o6.apps.googleusercontent.com"
+             data-callback="handleCredentialResponse">
+        </div>
+        <div class="g_id_signin" data-type="standard"></div>
+      
+
       </div>
       <!-- /.social-auth-links -->
 
@@ -116,13 +93,13 @@
   </div>
   <!-- /.card -->
 </div>
-<!-- /.login-box -->
-<!-- jQuery -->
+
 <script src="../adminLTE/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../adminLTE/dist/js/adminlte.min.js"></script>
-<script src="../Archivos js/login2.js"></script>
+<script src="../modules/loginFacebook.js"></script>
+<script src="../modules/loginGoogle.js"></script>
 </body>
 </html>
